@@ -16,9 +16,9 @@ def hello_world():
 
 @app.route('/coba')
 def coba():
-    hungarian_data = load_dataset("datasets/heart-disease/hungarian.data")
+    hungarian_data = load_dataset("datasets/heart-disease/processed.hungarian.data")
     hungarian_data.head()
-    return hungarian_data.to_json(orient='values')
+    return hungarian_data.to_json()
 
 
 if __name__ == '__main__':
