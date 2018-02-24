@@ -1,12 +1,9 @@
 import os
-import json
 
-import pandas as pd
-import simplejson
-from flask import Flask, render_template, request
 import numpy as np
+import pandas as pd
+from flask import Flask, render_template, request
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.linear_model import LinearRegression
 
 app = Flask(__name__)
 
