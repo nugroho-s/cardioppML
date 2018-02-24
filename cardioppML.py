@@ -7,6 +7,24 @@ from sklearn.ensemble import RandomForestRegressor
 
 app = Flask(__name__)
 
+sugestion = ['[{"Penyakit":"normal"}]',
+             '[{"Penyakit":"Coronary Artery Disease","Saran":"Aktivitas aerobik selama 20-30 menit, 5 hari seminggu\nBerhenti merokok tembakau\nMengurangi asupan makanan tinggi lemak seperti susu, minyak, dan daging merah"},{"Spesialis":"Kardiolog,Ahli bedah kardiotoraks,Penyedia perawatan primer (PCP),Dokter pengobatan darurat"}]',
+             '[{"Penyakit":"Old Anterior Myocardial Infarction"},{"Spesialis":"Kardiolog"}]',
+             '[{"Penyakit":"Old Inferior Myocardial Infarction"},{"Spesialis":"Kardiolog"}]',
+             '[{"Penyakit":"Sinus Tachycardia"},{"Saran":"Menghindari hal yang mengakibatkan denyut jantung meningkat,seperti stimulan atau kegiatan yang memicu stress\nmengonsumsi makanan untuk diet jantung\nberolahraga\nmenjaga berat tubuh"}]',
+             '[{"Penyakit":"Sinus Bradycardia"},{"Saran":"Berolahraga,diet,menjaga berat badan,menjaga tekanan darah dan kolesterol,hindari rokok dan obat terlarang"}]',
+             '[{"Penyakit":"Ventricular Premature Contraction"},{"Saran":{"Penghindaran rangsangan yang membuat jantung berdebar, menghindari stress"}}]',
+             '[{"Penyakit":"Supraventricular Premature Contraction"},{"Saran":"Menghindari rokok, kafein dan minuman keras"}]',
+             '[{"Penyakit":"Left bundle branch block"},{"Saran":"Mengobati kondisi yang mendasari,pemantauan berlanjut"}]'
+             '[{"Penyakit":"Right bundle branch block"},{"Saran":"Mengobati kondisi yang mendasari,pemantauan berlanjut"}]',
+             '[{"Penyakit":"First degree AtrioVentricular block"},{"Saran":"Konsultasi ke dokter, pengamatan ecg secara rutin"}]',
+             '[{"Penyakit":"Second degree AtrioVentricular block"},{"Saran":"Konsultasi ke dokter, pengamatan ecg secara rutin"}]',
+             '[{"Penyakit":"Third degree AtrioVentricular block"},{"Saran":"Konsultasi ke dokter, pengamatan ecg secara rutin"}]',
+             '[{"Penyakit":"Left Ventricular Hypertrophy"},{"Saran":"Berobat ke dokter jantung, menarapkan gaya hidup sehat"}]',
+             '[{"Penyakit":"Atrial Fibrillation or Flutter"},{"Saran":"Berobat ke dokter jantung dan meminum obat secara rutin\nmengonsumsi walfirin/aspirin"}]',
+             '[{"Penyakit":"Penyakit lain"},{"Saran":"Berkonsultasi ke dokter jantung dan menunjukkan hasil ecg pada ponsel"}]'
+             ]
+
 
 def load_dataset(dataset_path):
     dataset_path = os.path.join(app.root_path, dataset_path)
@@ -23,7 +41,8 @@ def predict():
         return "please provide 80 params. Your data only "+str(len(data))
     data = np.reshape(data,(1,-1))
     prediction = forest_reg.predict(data)
-    return str(prediction)
+    idx = int(prediction)
+    return sugestion[idx]
 
 
 if __name__ == '__main__':
