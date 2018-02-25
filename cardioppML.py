@@ -42,7 +42,7 @@ def predict():
     data = np.reshape(data,(1,-1))
     prediction = forest_cls.predict(data)
     idx = int(prediction)
-    return sugestion[idx]
+    return sugestion[idx-1]
 
 
 if __name__ == '__main__':
