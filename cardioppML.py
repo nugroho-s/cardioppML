@@ -9,10 +9,10 @@ from sklearn.preprocessing import Imputer
 app = Flask(__name__)
 
 sugestion = ['[{"Penyakit":"normal"}]',
-             '[{"Penyakit":"Coronary Artery Disease","Saran":"Aktivitas aerobik selama 20-30 menit, 5 hari seminggu\nBerhenti merokok tembakau\nMengurangi asupan makanan tinggi lemak seperti susu, minyak, dan daging merah"},{"Spesialis":"Kardiolog,Ahli bedah kardiotoraks,Penyedia perawatan primer (PCP),Dokter pengobatan darurat"}]',
+             '[{"Penyakit":"Coronary Artery Disease","Saran":"Aktivitas aerobik selama 20-30 menit, 5 hari seminggu. Berhenti merokok tembakau. Mengurangi asupan makanan tinggi lemak seperti susu, minyak, dan daging merah"},{"Spesialis":"Kardiolog,Ahli bedah kardiotoraks,Penyedia perawatan primer (PCP),Dokter pengobatan darurat"}]',
              '[{"Penyakit":"Old Anterior Myocardial Infarction"},{"Spesialis":"Kardiolog"}]',
              '[{"Penyakit":"Old Inferior Myocardial Infarction"},{"Spesialis":"Kardiolog"}]',
-             '[{"Penyakit":"Sinus Tachycardia"},{"Saran":"Menghindari hal yang mengakibatkan denyut jantung meningkat,seperti stimulan atau kegiatan yang memicu stress\nmengonsumsi makanan untuk diet jantung\nberolahraga\nmenjaga berat tubuh"}]',
+             '[{"Penyakit":"Sinus Tachycardia"},{"Saran":"Menghindari hal yang mengakibatkan denyut jantung meningkat,seperti stimulan atau kegiatan yang memicu stress. mengonsumsi makanan untuk diet jantung. berolahraga. menjaga berat tubuh"}]',
              '[{"Penyakit":"Sinus Bradycardia"},{"Saran":"Berolahraga,diet,menjaga berat badan,menjaga tekanan darah dan kolesterol,hindari rokok dan obat terlarang"}]',
              '[{"Penyakit":"Ventricular Premature Contraction"},{"Saran":{"Penghindaran rangsangan yang membuat jantung berdebar, menghindari stress"}}]',
              '[{"Penyakit":"Supraventricular Premature Contraction"},{"Saran":"Menghindari rokok, kafein dan minuman keras"}]',
@@ -22,7 +22,7 @@ sugestion = ['[{"Penyakit":"normal"}]',
              '[{"Penyakit":"Second degree AtrioVentricular block"},{"Saran":"Konsultasi ke dokter, pengamatan ecg secara rutin"}]',
              '[{"Penyakit":"Third degree AtrioVentricular block"},{"Saran":"Konsultasi ke dokter, pengamatan ecg secara rutin"}]',
              '[{"Penyakit":"Left Ventricular Hypertrophy"},{"Saran":"Berobat ke dokter jantung, menarapkan gaya hidup sehat"}]',
-             '[{"Penyakit":"Atrial Fibrillation or Flutter"},{"Saran":"Berobat ke dokter jantung dan meminum obat secara rutin\nmengonsumsi walfirin/aspirin"}]',
+             '[{"Penyakit":"Atrial Fibrillation or Flutter"},{"Saran":"Berobat ke dokter jantung dan meminum obat secara rutin. mengonsumsi walfirin/aspirin"}]',
              '[{"Penyakit":"Penyakit lain"},{"Saran":"Berkonsultasi ke dokter jantung dan menunjukkan hasil ecg pada ponsel"}]'
              ]
 
