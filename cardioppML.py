@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 from flask import Flask, render_template, request
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.preprocessing import Imputer
 
 app = Flask(__name__)
 
@@ -40,7 +41,7 @@ def predict():
     if not len(data) == 80:
         return "please provide 80 params. Your data only "+str(len(data))
     data = np.reshape(data,(1,-1))
-    prediction = forest_cls.predict(data)
+    prediction = forest_cls.predict(imp.transform(data))
     idx = int(prediction)
     return sugestion[idx-1]
 
@@ -51,6 +52,9 @@ if __name__ == '__main__':
     arrhythmia_arr = arrhythmia.values
     arrhythmia_label = arrhythmia_arr[:, 80]
     arrhythmia_train = np.delete(arrhythmia_arr, 80, 1)
+    # Create our imputer to replace missing values with the mean e.g.
+    imp = Imputer(missing_values='NaN', strategy='mean', axis=0)
+    imp = imp.fit(arrhythmia_train)
     forest_cls = RandomForestClassifier()
     forest_cls.fit(arrhythmia_train, arrhythmia_label)
     app.run()
