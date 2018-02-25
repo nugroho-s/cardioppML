@@ -3,7 +3,7 @@ import os
 import numpy as np
 import pandas as pd
 from flask import Flask, render_template, request
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import RandomForestClassifier
 
 app = Flask(__name__)
 
@@ -40,7 +40,7 @@ def predict():
     if not len(data) == 80:
         return "please provide 80 params. Your data only "+str(len(data))
     data = np.reshape(data,(1,-1))
-    prediction = forest_reg.predict(data)
+    prediction = forest_cls.predict(data)
     idx = int(prediction)
     return sugestion[idx]
 
@@ -51,6 +51,6 @@ if __name__ == '__main__':
     arrhythmia_arr = arrhythmia.values
     arrhythmia_label = arrhythmia_arr[:, 80]
     arrhythmia_train = np.delete(arrhythmia_arr, 80, 1)
-    forest_reg = RandomForestRegressor()
-    forest_reg.fit(arrhythmia_train, arrhythmia_label)
+    forest_cls = RandomForestClassifier()
+    forest_cls.fit(arrhythmia_train, arrhythmia_label)
     app.run()
